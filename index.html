@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kalfa Games</title>
+<meta name="description" content="Kalfa Games – mobil oyunlar / mobile games">
+<style>
+  :root {
+    --bg: #f5ede0;
+    --card: #fffaf0;
+    --text: #3e2a20;
+    --muted: #7a6458;
+    --accent: #6d4c41;
+    --line: #e4d6c3;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #1d1714;
+      --card: #2a211d;
+      --text: #f1e6da;
+      --muted: #b8a597;
+      --accent: #d7a98c;
+      --line: #3d312b;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+  main { max-width: 640px; margin: 0 auto; padding: 48px 16px 64px; text-align: center; }
+  h1 { margin: 0; font-size: 40px; letter-spacing: 2px; color: var(--accent); }
+  .lead { margin: 4px 0 32px; color: var(--muted); }
+  .game {
+    background: var(--card); border: 1px solid var(--line); border-radius: 16px;
+    padding: 24px 16px; text-decoration: none; color: inherit; display: block;
+  }
+  .game h2 { margin: 0; letter-spacing: 2px; color: var(--accent); }
+  .game p { margin: 4px 0 0; color: var(--muted); }
+  footer { margin-top: 32px; font-size: 14px; color: var(--muted); }
+  footer a { color: var(--accent); }
+</style>
+</head>
+<body>
+<main>
+  <h1>Kalfa Games</h1>
+  <p class="lead">Mobil oyunlar · Mobile games</p>
+  <a class="game" href="balance/">
+    <h2>BALANCE</h2>
+    <p>Taşları dengele, rekoru kır.<br>Weigh each stone, stay level.</p>
+  </a>
+  <footer>
+    <a href="mailto:oyungirisimci@gmail.com">oyungirisimci@gmail.com</a>
+  </footer>
+</main>
+</body>
+</html>
