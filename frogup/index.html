@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FROG UP</title>
+<meta name="description" content="FROG UP – Bataklıktan uzaya tırman! Climb from the swamp to space!">
+<meta property="og:title" content="FROG UP">
+<meta property="og:description" content="Bataklıktan uzaya tırman! / Climb from the swamp to space!">
+<style>
+  :root {
+    --bg: #eaf2e3;
+    --card: #fbfdf7;
+    --text: #23331f;
+    --muted: #5e6f58;
+    --accent: #3f8a3a;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #151c17;
+      --card: #1f2a21;
+      --text: #e6f0df;
+      --muted: #a8b9a0;
+      --accent: #8fd07f;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg);
+    color: var(--text);
+    font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    text-align: center;
+  }
+  main { max-width: 420px; padding: 32px 16px; }
+  h1 { margin: 0; font-size: 44px; letter-spacing: 3px; color: var(--accent); }
+  p { margin: 6px 0 28px; color: var(--muted); }
+  a.store {
+    display: block; margin: 12px auto; padding: 14px 20px; max-width: 280px;
+    border-radius: 999px; background: var(--accent); color: var(--card);
+    text-decoration: none; font-weight: 700;
+  }
+  [hidden] { display: none !important; }
+  .soon { font-weight: 700; color: var(--accent); }
+  footer { margin-top: 28px; font-size: 14px; }
+  footer a { color: var(--muted); margin: 0 8px; }
+</style>
+</head>
+<body>
+<main>
+  <h1>FROG UP</h1>
+  <p>Bataklıktan uzaya tırman!<br>Climb from the swamp to space!</p>
+  <!-- Fill in each store link once the app is live there; empty ones stay hidden. -->
+  <a class="store" id="appstore" href="">App Store</a>
+  <a class="store" id="play" href="">Google Play</a>
+  <p class="soon" id="soon" hidden>Yakında · Coming soon</p>
+  <footer>
+    <a href="support.html">Destek · Support</a>
+    <a href="privacy.html">Gizlilik · Privacy</a>
+  </footer>
+</main>
+<script>
+  // Send phones straight to their own store; everyone else picks a button.
+  var appStore = document.getElementById("appstore");
+  var play = document.getElementById("play");
+  var stores = [appStore, play].filter(function (link) {
+    if (!link.getAttribute("href")) {
+      link.hidden = true;
+      return false;
+    }
+    return true;
+  });
+  if (stores.length === 0) {
+    document.getElementById("soon").hidden = false;
+  }
+  var ua = navigator.userAgent || "";
+  var iOS = /iPhone|iPad|iPod/.test(ua) || (/Macintosh/.test(ua) && "ontouchend" in document);
+  if (/Android/i.test(ua) && play.getAttribute("href")) {
+    location.replace(play.href);
+  } else if (iOS && appStore.getAttribute("href")) {
+    location.replace(appStore.href);
+  }
+</script>
+</body>
+</html>
